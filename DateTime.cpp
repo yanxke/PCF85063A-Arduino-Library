@@ -3,6 +3,8 @@
 // Helper functions to convert between Binary Coded Decimal (BCD) and decimal
 static uint8_t bcd2bin(uint8_t val) { return val - 6 * (val >> 4); }
 static uint8_t bin2bcd(uint8_t val) { return val + 6 * (val / 10); }
+const uint8_t daysInMonth[] PROGMEM = {31, 28, 31, 30, 31, 30,
+                                       31, 31, 30, 31, 30};
 
 static uint16_t date2days(uint16_t y, uint8_t m, uint8_t d) {
   if (y >= 2000U)
