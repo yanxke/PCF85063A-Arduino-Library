@@ -3,6 +3,7 @@
 
 #include "Arduino.h"
 #include "Wire.h"
+#include "DateTime.h"
 
 #define I2C_ADDR            0x51
 
@@ -42,6 +43,9 @@
 class PCF85063A {
 	public:
 		PCF85063A();
+		bool begin();
+		bool lostPower();
+		void adjust(const DateTime &dt);
 
 	    enum CountdownSrcClock {TIMER_CLOCK_4096HZ   = 0,
                  		TIMER_CLOCK_64HZ     = 1,
@@ -72,6 +76,8 @@ class PCF85063A {
 		uint8_t getAlarmHour();
 		uint8_t getAlarmDay();
 		uint8_t getAlarmWeekday();
+		DateTime now();
+		float getTemperature();
 
 	private:
 		uint8_t decToBcd(uint8_t val);

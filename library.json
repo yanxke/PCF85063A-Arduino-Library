@@ -1,0 +1,23 @@
+{
+  "name": "PCF85063A-Arduino-Library",
+  "keywords": "PCF85063A,RTC",
+  "description": "Library for the PCF85063A RTC for Arduino.  Compatible with the popular RTClib APIs",
+  "authors":
+  [
+    {
+      "name": "Yan Ke",
+      "email": "yke@yanke.org",
+      "maintainer": true
+    },
+  ],
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/yanxke/PCF85063A-Arduino-Library"
+  },
+  "version": "0.1.0",
+  "license": "MIT",
+  "frameworks": "*",
+  "platforms": "*",
+  "headers": "CRC.h"
+}
