@@ -1,8 +1,8 @@
 #ifndef PCF85063A_H
 #define PCF85063A_H
 
-#include "Arduino.h"
-#include "Wire.h"
+#include <Arduino.h>
+#include <Wire.h>
 #include "DateTime.h"
 
 #define I2C_ADDR            0x51
