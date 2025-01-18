@@ -1,5 +1,7 @@
 # PCF85063A #
 
+Add API compatiblity with RTClib for a drop in replacement with existing code.
+
 Used with Wire library for beautifly made [PCF85063A breakout](https://e-radionica.com/en/rtc-real-time-clock-pcf85063-e-radionica.html/) and [Croduino Basic](https://e-radionica.com/en/croduino-basic3.html/) made in Europe.
 
 ## Examples ##

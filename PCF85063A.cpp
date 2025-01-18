@@ -4,10 +4,20 @@
 // INIT
 PCF85063A::PCF85063A(void)
 {
-	Wire.begin();
+}
+
+bool PCF85063A::begin() 
+{
+	return Wire.begin();
 }
 
 // PUBLIC
+bool PCF85063A::lostPower() 
+{
+	// NOT IMPLEMENTED
+	return false;
+}
+
 void PCF85063A::setTime(uint8_t hour, uint8_t minute, uint8_t second) 
 {
 	Wire.beginTransmission(I2C_ADDR);
@@ -16,6 +26,13 @@ void PCF85063A::setTime(uint8_t hour, uint8_t minute, uint8_t second)
 	Wire.write(decToBcd( minute) );
 	Wire.write(decToBcd( hour) );
 	Wire.endTransmission();
+}
+
+void PCF85063A::adjust(const DateTime &dt) 
+{
+	// Call setTime() and setDate() to set the time and date
+	setTime(dt.hour(), dt.minute(), dt.second());
+	setDate(dt.dayOfTheWeek(), dt.day(), dt.month(), dt.year());
 }
 
 void PCF85063A::setDate(uint8_t weekday, uint8_t day, uint8_t month, uint8_t yr)
@@ -305,4 +322,15 @@ uint8_t PCF85063A::decToBcd(uint8_t val)
 uint8_t PCF85063A::bcdToDec(uint8_t val)
 {
   return ( (val/16*10) + (val%16) );
+}
+
+DateTime PCF85063A::now()
+{
+	readTime();
+	return DateTime(year, month, day, hour, minute, second);
+}
+
+float PCF85063A::getTemperature()
+{
+	return -273.15;	// NOT IMPLEMENTED
 }
